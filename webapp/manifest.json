@@ -1,0 +1,108 @@
+{
+    "_version": "1.12.0",
+    "sap.app": {
+        "id": "ehsm.portal",
+        "type": "application",
+        "title": "EHSM Portal",
+        "description": "Environment, Health & Safety Management Portal",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "dataSources": {}
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexibilityServices": [],
+        "rootView": {
+            "viewName": "ehsm.portal.view.App",
+            "type": "XML",
+            "id": "app",
+            "async": true
+        },
+        "dependencies": {
+            "minUI5Version": "1.60.0",
+            "libs": {
+                "sap.ui.core": {},
+                "sap.m": {},
+                "sap.f": {},
+                "sap.ui.layout": {}
+            }
+        },
+        "contentDensities": {
+            "cozy": true,
+            "compact": true
+        },
+        "models": {
+            "": {
+                "type": "sap.ui.model.json.JSONModel"
+            },
+            "device": {
+                "type": "sap.ui.model.json.JSONModel"
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "ehsm.portal.view",
+                "controlId": "app",
+                "controlAggregation": "pages",
+                "async": true
+            },
+            "routes": [
+                {
+                    "name": "login",
+                    "pattern": "",
+                    "target": "login"
+                },
+                {
+                    "name": "dashboard",
+                    "pattern": "dashboard",
+                    "target": "dashboard"
+                },
+                {
+                    "name": "incident",
+                    "pattern": "incident",
+                    "target": "incident"
+                },
+                {
+                    "name": "risk",
+                    "pattern": "risk",
+                    "target": "risk"
+                }
+            ],
+            "targets": {
+                "login": {
+                    "viewName": "Login",
+                    "viewLevel": 1
+                },
+                "dashboard": {
+                    "viewName": "Dashboard",
+                    "viewLevel": 2
+                },
+                "incident": {
+                    "viewName": "Incident",
+                    "viewLevel": 3
+                },
+                "risk": {
+                    "viewName": "Risk",
+                    "viewLevel": 3
+                }
+            }
+        }
+    }
+}

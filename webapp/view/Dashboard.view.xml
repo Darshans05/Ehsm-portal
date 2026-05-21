@@ -1,0 +1,138 @@
+<mvc:View
+    controllerName="ehsm.portal.controller.Dashboard"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core"
+    height="100%">
+
+    <Page showHeader="false" class="ehsmPageBackground">
+        <content>
+            <!-- Fiori Premium Dark Header Banner -->
+            <VBox class="dashboardHeader sapUiSmallMarginBottom">
+                <l:Grid containerQuery="true" defaultSpan="XL6 L6 M6 S12" position="Center">
+                    <VBox>
+                        <Title text="Environment, Health &amp; Safety Dashboard" class="dashboardHeaderTitle" />
+                        <Text text="Enterprise EHSM Control Center &amp; Risk Register" class="dashboardHeaderSubtitle" />
+                    </VBox>
+                    <VBox alignItems="End" alignContent="End" justifyContent="Center">
+                        <!-- Dynamic User Session Badges -->
+                        <HBox alignItems="Center">
+                            <core:Icon src="sap-icon://user-settings" color="#ffffff" class="sapUiTinyMarginEnd" />
+                            <Text text="EHS Officer: {appUser>/empId}" class="dashboardUserHeader sapUiMediumMarginEnd" />
+                            
+                            <Button 
+                                text="Sign Out" 
+                                icon="sap-icon://log" 
+                                type="Reject" 
+                                press="onSignOutPress" 
+                                class="sapUiTinyMarginBegin" />
+                        </HBox>
+                    </VBox>
+                </l:Grid>
+            </VBox>
+
+            <!-- 4-Card Safety KPI Grid (Dynamic) -->
+            <VBox class="sapUiMediumMarginBeginEnd sapUiSmallMarginBottom">
+                <l:Grid containerQuery="true" defaultSpan="XL3 L3 M6 S12" hSpacing="1" vSpacing="1" position="Center">
+                    
+                    <!-- KPI Card 1: Total Incident Logs (Navigable) -->
+                    <GenericTile 
+                        header="Incident Management" 
+                        subheader="Total Registered Logs" 
+                        class="kpiTile"
+                        press="onNavigateToIncidents">
+                        <TileContent>
+                            <NumericContent 
+                                value="{kpis>/totalIncidents}" 
+                                indicator="None" 
+                                valueColor="Neutral" 
+                                icon="sap-icon://incident" />
+                        </TileContent>
+                    </GenericTile>
+
+                    <!-- KPI Card 2: Risk Assessments (Navigable) -->
+                    <GenericTile 
+                        header="Risk Assessment" 
+                        subheader="Total Active Hazards" 
+                        class="kpiTile"
+                        press="onNavigateToRisks">
+                        <TileContent>
+                            <NumericContent 
+                                value="{kpis>/totalRisks}" 
+                                indicator="None" 
+                                valueColor="Good" 
+                                icon="sap-icon://shield" />
+                        </TileContent>
+                    </GenericTile>
+
+                    <!-- KPI Card 3: Action Required (Open Incidents) -->
+                    <GenericTile 
+                        header="Unresolved Incidents" 
+                        subheader="Awaiting Action" 
+                        class="kpiTile"
+                        press="onNavigateToIncidents">
+                        <TileContent>
+                            <NumericContent 
+                                value="{kpis>/openIncidents}" 
+                                indicator="Up" 
+                                valueColor="Critical" 
+                                icon="sap-icon://alert" />
+                        </TileContent>
+                    </GenericTile>
+
+                    <!-- KPI Card 4: Safety Warning (High Risks) -->
+                    <GenericTile 
+                        header="High Risk Hazards" 
+                        subheader="Immediate Attention" 
+                        class="kpiTile"
+                        press="onNavigateToRisks">
+                        <TileContent>
+                            <NumericContent 
+                                value="{kpis>/highRisks}" 
+                                indicator="Up" 
+                                valueColor="Error" 
+                                icon="sap-icon://warning" />
+                        </TileContent>
+                    </GenericTile>
+
+                </l:Grid>
+            </VBox>
+
+            <!-- Lower Layout: Safety Audits Grid & Quick Sign Out -->
+            <VBox class="sapUiMediumMarginBeginEnd sapUiMediumMarginBottom">
+                <Table 
+                    id="plantAuditsTable"
+                    items="{/plantSafety}" 
+                    headerText="Plant Safety Audit Summary"
+                    class="sapUiResponsiveMargin">
+                    <headerToolbar>
+                        <OverflowToolbar class="ehsmTableToolbar">
+                            <Title text="Plant Safety Compliance Audits" level="H3" class="primaryColorText" />
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column><Text text="Plant Location" class="boldText" /></Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true"><Text text="Safety Status" class="boldText" /></Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true"><Text text="Active Incidents" class="boldText" /></Column>
+                        <Column minScreenWidth="Desktop" demandPopin="true"><Text text="High Risks" class="boldText" /></Column>
+                        <Column><Text text="Compliance Grade" class="boldText" /></Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem vAlign="Middle">
+                            <cells>
+                                <Text text="{location}" class="boldText" />
+                                <ObjectStatus text="{status}" state="{state}" />
+                                <Text text="{incidents}" />
+                                <Text text="{highRisks}" />
+                                <ObjectMarker type="Flagged" visible="{= ${flagged} === 'Flagged'}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+
+        </content>
+    </Page>
+</mvc:View>

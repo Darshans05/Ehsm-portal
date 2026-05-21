@@ -1,0 +1,62 @@
+[
+    {
+        "INCIDENT_ID": "INC-2026-001",
+        "EMP_ID": "EMP-048",
+        "PLANT_ID": "PLANT-TX",
+        "INCIDENT_TYPE": "Chemical Leak",
+        "DESCRIPTION": "Minor chemical leakage detected in reactor chamber B. Contained quickly without injuries.",
+        "SEVERITY": "High",
+        "STATUS": "Open",
+        "CREATED_ON": "/Date(1779264000000)/"
+    },
+    {
+        "INCIDENT_ID": "INC-2026-002",
+        "EMP_ID": "EMP-102",
+        "PLANT_ID": "PLANT-OH",
+        "INCIDENT_TYPE": "Slip and Fall",
+        "DESCRIPTION": "Operator slipped on wet floor near packing line 4. Ankle sprained. First aid applied.",
+        "SEVERITY": "Medium",
+        "STATUS": "In Progress",
+        "CREATED_ON": "/Date(1779350400000)/"
+    },
+    {
+        "INCIDENT_ID": "INC-2026-003",
+        "EMP_ID": "EMP-015",
+        "PLANT_ID": "PLANT-CA",
+        "INCIDENT_TYPE": "Electrical Fire",
+        "DESCRIPTION": "Short circuit in control panel E3. Automatic CO2 fire suppression activated instantly.",
+        "SEVERITY": "Critical",
+        "STATUS": "Closed",
+        "CREATED_ON": "/Date(1779436800000)/"
+    },
+    {
+        "INCIDENT_ID": "INC-2026-004",
+        "EMP_ID": "EMP-088",
+        "PLANT_ID": "PLANT-TX",
+        "INCIDENT_TYPE": "PPE Non-Compliance",
+        "DESCRIPTION": "Contractor spotted without proper safety helmet in loading bay. Cautioned and re-trained.",
+        "SEVERITY": "Low",
+        "STATUS": "New",
+        "CREATED_ON": "/Date(1779523200000)/"
+    },
+    {
+        "INCIDENT_ID": "INC-2026-005",
+        "EMP_ID": "EMP-204",
+        "PLANT_ID": "PLANT-DE",
+        "INCIDENT_TYPE": "Machine Malfunction",
+        "DESCRIPTION": "Conveyor belt 2 motor overheated causing automatic emergency shutdown. Replaced motor.",
+        "SEVERITY": "Medium",
+        "STATUS": "Open",
+        "CREATED_ON": "/Date(1779609600000)/"
+    },
+    {
+        "INCIDENT_ID": "INC-2026-006",
+        "EMP_ID": "EMP-119",
+        "PLANT_ID": "PLANT-OH",
+        "INCIDENT_TYPE": "Gas Leak Detection",
+        "DESCRIPTION": "Carbon monoxide sensor triggered alarm in assembly zone 1. Plant evacuated; fans resolved it.",
+        "SEVERITY": "High",
+        "STATUS": "In Progress",
+        "CREATED_ON": "/Date(1779696000000)/"
+    }
+]

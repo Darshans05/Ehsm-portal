@@ -1,0 +1,164 @@
+/* Centered Login View Styling */
+.loginContainer {
+    background-color: #101c2b;
+    background-image: linear-gradient(rgba(28, 45, 66, 0.45), rgba(16, 28, 43, 0.65)), url("login_bgnew.jpg");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+.loginCard {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(8px);
+    padding: 2.5rem;
+    max-width: 420px;
+    width: 100%;
+}
+
+.loginHeader {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.loginLogoIcon {
+    font-size: 2.8rem;
+    color: #0a6ed1;
+    /* Standard SAP Fiori Blue */
+    margin-bottom: 0.5rem;
+}
+
+.loginTitle {
+    font-weight: 600;
+    color: #2f3e4f;
+    margin: 0;
+}
+
+.loginSubtitle {
+    color: #6a7b8c;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+/* Dashboard Header & Tile Layout Styling */
+.dashboardHeader {
+    background: linear-gradient(135deg, #1c2d42 0%, #101c2b 100%);
+    border-bottom: 3px solid #0a6ed1;
+    color: #ffffff;
+    padding: 1.5rem 2rem;
+}
+
+.dashboardHeaderTitle {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    font-size: 1.5rem !important;
+}
+
+.dashboardHeaderSubtitle {
+    color: #a5b4c4 !important;
+    font-size: 0.9rem !important;
+}
+
+/* KPI Card & Tile Interactive Hover Effects */
+.kpiTile {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    border-radius: 6px;
+    border: 1px solid #e0e4e9 !important;
+    background-color: #ffffff !important;
+    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.kpiTile:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(10, 110, 209, 0.1);
+    border-color: #0a6ed1 !important;
+}
+
+/* Aligning and spacing for lists and tables */
+.ehsmTableToolbar {
+    background-color: #f7f9fa !important;
+    border-bottom: 1px solid #e0e4e9 !important;
+}
+
+.ehsmPageBackground {
+    background-color: #f4f6f9;
+}
+
+/* Typography CSS Helper Classes */
+.boldText {
+    font-weight: bold;
+}
+
+.headerCountIncident {
+    font-weight: bold;
+    color: #0a6ed1;
+}
+
+.headerCountRisk {
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+.primaryColorText {
+    font-weight: bold;
+    color: #1c2d42;
+}
+
+.dashboardUserHeader {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.dashboardEnvHeader {
+    font-size: 0.75rem;
+    color: #cbd5e1;
+}
+
+.dashboardKpiTitle {
+    font-weight: 500;
+    color: #2f3e4f;
+}
+
+.kpiNumberIncident {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #0a6ed1;
+}
+
+.kpiNumberRisk {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+.kpiNumberOpenIncident {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #bb0000;
+}
+
+.kpiNumberHighRisk {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #e65100;
+}
+
+.kpiTextMuted {
+    color: #6a7b8c;
+}
+
+.kpiTextRed {
+    color: #bb0000;
+}
+
+.kpiTextOrange {
+    color: #e65100;
+}
+
+.kpiSubtitle {
+    font-size: 0.8rem;
+    color: #8898a8;
+}

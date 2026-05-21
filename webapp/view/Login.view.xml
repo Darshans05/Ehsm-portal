@@ -1,0 +1,59 @@
+<mvc:View
+    controllerName="ehsm.portal.controller.Login"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core"
+    height="100%">
+    
+    <Page showHeader="false" class="loginContainer">
+        <content>
+            <FlexBox
+                alignItems="Center"
+                justifyContent="Center"
+                height="100%"
+                width="100%">
+                
+                <VBox class="loginCard">
+                    <!-- Fiori Header Area -->
+                    <VBox class="loginHeader">
+                        <core:Icon src="sap-icon://shield" class="loginLogoIcon" />
+                        <Title text="SAP EHSM Portal" level="H2" class="loginTitle" />
+                        <Text text="Environment, Health &amp; Safety Management" class="loginSubtitle" />
+                    </VBox>
+
+                    <!-- Authentication Form Inputs -->
+                    <VBox class="sapUiMediumMarginBottom">
+                        <Label text="Employee ID" required="true" class="sapUiTinyMarginBottom boldText" />
+                        <Input
+                            id="empIdInput"
+                            placeholder="e.g. 00000001"
+                            type="Text"
+                            liveChange="onInputChange"
+                            submit="onLoginPress"
+                            class="sapUiSmallMarginBottom" />
+                        
+                        <Label text="Security Password" required="true" class="sapUiTinyMarginBottom boldText" />
+                        <Input
+                            id="passwordInput"
+                            placeholder="Enter password..."
+                            type="Password"
+                            liveChange="onInputChange"
+                            submit="onLoginPress" />
+                    </VBox>
+
+                    <!-- Login Button -->
+                    <Button
+                        id="loginBtn"
+                        text="Sign In"
+                        type="Emphasized"
+                        width="100%"
+                        press="onLoginPress"
+                        class="sapUiTinyMarginTop" />
+                </VBox>
+
+            </FlexBox>
+        </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SAP EHSM Portal</title>
+
+    <!-- Bootstrap SAP UI5 / OpenUI5 -->
+    <script id="sap-ui-bootstrap"
+        src="https://sdk.openui5.org/resources/sap-ui-core.js"
+        data-sap-ui-theme="sap_fiori_3"
+        data-sap-ui-resourceroots='{
+            "ehsm.portal": "./"
+        }'
+        data-sap-ui-compatVersion="edge"
+        data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
+        data-sap-ui-async="true"
+        data-sap-ui-frameOptions="trusted">
+    </script>
+</head>
+<body class="sapUiBody" id="content">
+    <!-- SAP UI5 Component Container -->
+    <div data-sap-ui-component 
+         data-name="ehsm.portal" 
+         data-id="container" 
+         data-settings='{"id" : "ehsm.portal"}' 
+         style="height: 100%;">
+    </div>
+</body>
+</html>

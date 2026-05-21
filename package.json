@@ -1,0 +1,19 @@
+{
+    "name": "sap-ehsm-portal-middleware",
+    "version": "1.0.0",
+    "description": "Node.js Express Middleware & OData Proxy for SAP UI5 EHSM Portal",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "express": "^4.19.2",
+        "http-proxy-middleware": "^3.0.3",
+        "cors": "^2.8.5",
+        "axios": "^1.7.2",
+        "dotenv": "^16.4.5"
+    },
+    "engines": {
+        "node": ">=16.0.0"
+    }
+}

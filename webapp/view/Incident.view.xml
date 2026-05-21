@@ -1,0 +1,134 @@
+<mvc:View
+    controllerName="ehsm.portal.controller.Incident"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    height="100%">
+
+    <Page 
+        showNavButton="true" 
+        navButtonPress="onNavBack" 
+        title="Incident Management logs"
+        class="ehsmPageBackground">
+        
+        <headerContent>
+            <Button 
+                text="Sign Out" 
+                icon="sap-icon://log" 
+                type="Reject" 
+                press="onSignOutPress" />
+        </headerContent>
+
+        <content>
+            <!-- Responsive Advanced Filters Container -->
+            <VBox class="sapUiMediumMargin">
+                <l:Grid containerQuery="true" defaultSpan="XL3 L3 M6 S12" position="Center" class="sapUiTinyMarginBottom">
+                    
+                    <!-- 1. Location Filter -->
+                    <VBox>
+                        <Label text="Plant Location" class="boldText sapUiTinyMarginBottom" />
+                        <ComboBox 
+                            id="plantFilter" 
+                            placeholder="Select plant..."
+                            selectionChange="onFilterChange" 
+                            width="100%"
+                            items="{filterOptions>/plants}">
+                            <core:Item key="{filterOptions>key}" text="{filterOptions>text}" />
+                        </ComboBox>
+                    </VBox>
+
+                    <!-- 2. Severity Level Filter -->
+                    <VBox>
+                        <Label text="Severity Rating" class="boldText sapUiTinyMarginBottom" />
+                        <ComboBox 
+                            id="severityFilter" 
+                            placeholder="Select severity..."
+                            selectionChange="onFilterChange" 
+                            width="100%"
+                            items="{filterOptions>/severities}">
+                            <core:Item key="{filterOptions>key}" text="{filterOptions>text}" />
+                        </ComboBox>
+                    </VBox>
+
+                    <!-- 3. Resolution Status Filter -->
+                    <VBox>
+                        <Label text="Log Status" class="boldText sapUiTinyMarginBottom" />
+                        <ComboBox 
+                            id="statusFilter" 
+                            placeholder="Select status..."
+                            selectionChange="onFilterChange" 
+                            width="100%"
+                            items="{filterOptions>/statuses}">
+                            <core:Item key="{filterOptions>key}" text="{filterOptions>text}" />
+                        </ComboBox>
+                    </VBox>
+
+                    <!-- 4. Quick Reset Controls -->
+                    <VBox justifyContent="End" height="100%">
+                        <Label text="" />
+                        <Button 
+                            text="Clear All Filters" 
+                            icon="sap-icon://clear-filter" 
+                            type="Ghost" 
+                            press="onResetFilters" 
+                            width="100%" />
+                    </VBox>
+
+                </l:Grid>
+
+                <!-- Dynamic Search and Results Table -->
+                <Table 
+                    id="incidentsTable"
+                    items="{incidents>/}"
+                    growing="true"
+                    growingThreshold="10"
+                    noDataText="No incidents found matching these criteria."
+                    class="sapUiTinyMarginTop shadowCard">
+                    <headerToolbar>
+                        <OverflowToolbar class="ehsmTableToolbar">
+                            <!-- Live Count Indicators -->
+                            <Title text="Safety Logs" level="H3" class="primaryColorText" />
+                            <ObjectStatus text="({kpis>/filteredCount} matches)" state="Success" class="sapUiTinyMarginBegin boldText" />
+                            
+                            <ToolbarSpacer />
+                            
+                            <!-- Main Search Bar -->
+                            <SearchField 
+                                id="searchField"
+                                placeholder="Search by type or description..." 
+                                liveChange="onSearch"
+                                width="320px" />
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column width="11%"><Text text="Incident ID" class="boldText" /></Column>
+                        <Column width="14%" minScreenWidth="Tablet" demandPopin="true"><Text text="Plant" class="boldText" /></Column>
+                        <Column width="16%" minScreenWidth="Tablet" demandPopin="true"><Text text="Incident Type" class="boldText" /></Column>
+                        <Column width="33%"><Text text="Description" class="boldText" /></Column>
+                        <Column width="13%" minScreenWidth="Tablet" demandPopin="true"><Text text="Severity" class="boldText" /></Column>
+                        <Column width="13%"><Text text="Status" class="boldText" /></Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem vAlign="Middle">
+                            <cells>
+                                <Text text="{incidents>INCIDENT_ID}" class="boldText" />
+                                <Text text="{incidents>PLANT_ID}" />
+                                <Text text="{incidents>INCIDENT_TYPE}" class="primaryColorText" />
+                                <Text text="{incidents>DESCRIPTION}" />
+                                <ObjectStatus 
+                                    text="{incidents>SEVERITY}" 
+                                    state="{path: 'incidents>SEVERITY', formatter: '.formatter.severityState'}" 
+                                    icon="{path: 'incidents>SEVERITY', formatter: '.formatter.severityIcon'}" />
+                                <ObjectStatus 
+                                    text="{incidents>STATUS}" 
+                                    state="{path: 'incidents>STATUS', formatter: '.formatter.statusState'}" 
+                                    class="boldText" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

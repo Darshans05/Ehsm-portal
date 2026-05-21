@@ -1,0 +1,134 @@
+<mvc:View
+    controllerName="ehsm.portal.controller.Risk"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    height="100%">
+
+    <Page 
+        showNavButton="true" 
+        navButtonPress="onNavBack" 
+        title="Risk Assessment Registers"
+        class="ehsmPageBackground">
+        
+        <headerContent>
+            <Button 
+                text="Sign Out" 
+                icon="sap-icon://log" 
+                type="Reject" 
+                press="onSignOutPress" />
+        </headerContent>
+
+        <content>
+            <!-- Advanced Risk Filters Container -->
+            <VBox class="sapUiMediumMargin">
+                <l:Grid containerQuery="true" defaultSpan="XL3 L3 M6 S12" position="Center" class="sapUiTinyMarginBottom">
+                    
+                    <!-- 1. Location Filter -->
+                    <VBox>
+                        <Label text="Plant Location" class="boldText sapUiTinyMarginBottom" />
+                        <ComboBox 
+                            id="plantFilter" 
+                            placeholder="Select plant..."
+                            selectionChange="onFilterChange" 
+                            width="100%"
+                            items="{filterOptions>/plants}">
+                            <core:Item key="{filterOptions>key}" text="{filterOptions>text}" />
+                        </ComboBox>
+                    </VBox>
+
+                    <!-- 2. Hazard Level Filter -->
+                    <VBox>
+                        <Label text="Risk Rating Level" class="boldText sapUiTinyMarginBottom" />
+                        <ComboBox 
+                            id="riskLevelFilter" 
+                            placeholder="Select hazard level..."
+                            selectionChange="onFilterChange" 
+                            width="100%"
+                            items="{filterOptions>/riskLevels}">
+                            <core:Item key="{filterOptions>key}" text="{filterOptions>text}" />
+                        </ComboBox>
+                    </VBox>
+
+                    <!-- 3. Risk Mitigation Status Filter -->
+                    <VBox>
+                        <Label text="Assessment Status" class="boldText sapUiTinyMarginBottom" />
+                        <ComboBox 
+                            id="statusFilter" 
+                            placeholder="Select status..."
+                            selectionChange="onFilterChange" 
+                            width="100%"
+                            items="{filterOptions>/statuses}">
+                            <core:Item key="{filterOptions>key}" text="{filterOptions>text}" />
+                        </ComboBox>
+                    </VBox>
+
+                    <!-- 4. Reset Filters Buttons -->
+                    <VBox justifyContent="End" height="100%">
+                        <Label text="" />
+                        <Button 
+                            text="Clear All Filters" 
+                            icon="sap-icon://clear-filter" 
+                            type="Ghost" 
+                            press="onResetFilters" 
+                            width="100%" />
+                    </VBox>
+
+                </l:Grid>
+
+                <!-- Dynamic Search and Results Table -->
+                <Table 
+                    id="risksTable"
+                    items="{risks>/}"
+                    growing="true"
+                    growingThreshold="10"
+                    noDataText="No hazard registers found matching these criteria."
+                    class="sapUiTinyMarginTop shadowCard">
+                    <headerToolbar>
+                        <OverflowToolbar class="ehsmTableToolbar">
+                            <!-- Live Count Indicators -->
+                            <Title text="Risk Registers" level="H3" class="primaryColorText" />
+                            <ObjectStatus text="({kpis>/filteredCount} matches)" state="Success" class="sapUiTinyMarginBegin boldText" />
+                            
+                            <ToolbarSpacer />
+                            
+                            <!-- Main Search Bar -->
+                            <SearchField 
+                                id="searchField"
+                                placeholder="Search by hazard type or details..." 
+                                liveChange="onSearch"
+                                width="320px" />
+                        </OverflowToolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column width="11%"><Text text="Risk ID" class="boldText" /></Column>
+                        <Column width="14%" minScreenWidth="Tablet" demandPopin="true"><Text text="Plant" class="boldText" /></Column>
+                        <Column width="16%" minScreenWidth="Tablet" demandPopin="true"><Text text="Hazard Type" class="boldText" /></Column>
+                        <Column width="33%"><Text text="Description" class="boldText" /></Column>
+                        <Column width="13%" minScreenWidth="Tablet" demandPopin="true"><Text text="Risk Level" class="boldText" /></Column>
+                        <Column width="13%"><Text text="Status" class="boldText" /></Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem vAlign="Middle">
+                            <cells>
+                                <Text text="{risks>RISK_ID}" class="boldText" />
+                                <Text text="{risks>PLANT_ID}" />
+                                <Text text="{risks>RISK_TYPE}" class="primaryColorText" />
+                                <Text text="{risks>DESCRIPTION}" />
+                                <ObjectStatus 
+                                    text="{risks>RISK_LEVEL}" 
+                                    state="{path: 'risks>RISK_LEVEL', formatter: '.formatter.severityState'}" 
+                                    icon="{path: 'risks>RISK_LEVEL', formatter: '.formatter.severityIcon'}" />
+                                <ObjectStatus 
+                                    text="{risks>STATUS}" 
+                                    state="{path: 'risks>STATUS', formatter: '.formatter.statusState'}" 
+                                    class="boldText" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

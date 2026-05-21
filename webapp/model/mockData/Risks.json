@@ -1,0 +1,47 @@
+[
+    {
+        "RISK_ID": "RSK-2026-001",
+        "PLANT_ID": "PLANT-TX",
+        "RISK_TYPE": "Chemical Exposure",
+        "DESCRIPTION": "Risk of toxic inhalation during manual refilling of reactor acid line. Ventilation check required.",
+        "RISK_LEVEL": "High",
+        "STATUS": "Active",
+        "CREATED_ON": "/Date(1779264000000)/"
+    },
+    {
+        "RISK_ID": "RSK-2026-002",
+        "PLANT_ID": "PLANT-OH",
+        "RISK_TYPE": "Noise Exposure",
+        "DESCRIPTION": "Turbine room noise levels exceed 85dB. Risk of hearing damage. Require ear protectors.",
+        "RISK_LEVEL": "Medium",
+        "STATUS": "Mitigated",
+        "CREATED_ON": "/Date(1779350400000)/"
+    },
+    {
+        "RISK_ID": "RSK-2026-003",
+        "PLANT_ID": "PLANT-CA",
+        "RISK_TYPE": "High Voltage Shock",
+        "DESCRIPTION": "Exposed terminal block on auxiliary generator cabinet G2. Electrocution risk.",
+        "RISK_LEVEL": "Critical",
+        "STATUS": "Identified",
+        "CREATED_ON": "/Date(1779436800000)/"
+    },
+    {
+        "RISK_ID": "RSK-2026-004",
+        "PLANT_ID": "PLANT-DE",
+        "RISK_TYPE": "Repetitive Strain Injury",
+        "DESCRIPTION": "Ergonomics risk for packaging operators due to heavy lifting. Adjustable stands installed.",
+        "RISK_LEVEL": "Low",
+        "STATUS": "Mitigated",
+        "CREATED_ON": "/Date(1779523200000)/"
+    },
+    {
+        "RISK_ID": "RSK-2026-005",
+        "PLANT_ID": "PLANT-TX",
+        "RISK_TYPE": "Falling Hazards",
+        "DESCRIPTION": "High racks in warehouse zone C lack safety netting. High risk of heavy loads slipping off.",
+        "RISK_LEVEL": "High",
+        "STATUS": "Active",
+        "CREATED_ON": "/Date(1779609600000)/"
+    }
+]
